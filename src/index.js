@@ -1,13 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
-import Nutshell from "./Nutshell"
 import * as serviceWorker from "./serviceWorker"
 import { BrowserRouter as Router } from "react-router-dom"
+import NiceKick from "./NiceKick";
 
 ReactDOM.render(
   <Router>
-    <Nutshell />
+    <NiceKick />
   </Router>,
   document.getElementById("root")
 )

@@ -13,11 +13,11 @@ class Nav extends Component {
         <ul className="nav nav-pills">
           <li className="nav-item">
             <Link className="nav-link" to="/">
-              Nutshell
+              NiceKick!
             </Link>
           </li>
         </ul>
-        <a className="nav-link">Aloha 🌺 {this.props.activeUser.username}</a>
+        <a className="nav-link">Hello {this.props.activeUser.username}</a>
         <button
           type="button"
           className="btn btn-outline-info"
