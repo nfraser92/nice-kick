@@ -16,6 +16,16 @@ class Nav extends Component {
               NiceKick!
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/users">
+              Users
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/sessions">
+              Sessions
+            </Link>
+          </li>
         </ul>
         <a className="nav-link">Hello {this.props.activeUser.username}</a>
         <button
