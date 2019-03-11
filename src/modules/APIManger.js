@@ -8,12 +8,12 @@ export default Object.create(null, {
     }
   },
 
-  // getAll: {
-  //   value: function () {
-  //     return fetch(`${Settings.remoteURL}/${this.desiredDatabase}`)
-  //       .then(r => r.json())
-  //   }
-  // },
+  getAll: {
+    value: function () {
+      return fetch(`${Settings.remoteURL}/${this.desiredDatabase}`)
+        .then(r => r.json())
+    }
+  },
 
   deleteAndList: {
     value: function (id) {
@@ -51,5 +51,12 @@ export default Object.create(null, {
         .then(r => r.json())
     }
   },
+
+  sortSessions: {
+    value: function (activeUser) {
+      return fetch(`${Settings.remoteURL}/sessions?/userId=${activeUser}&_sort=timestamp&_order=desc`)
+        .then(r => r.json())
+    }
+  }
 
 })
