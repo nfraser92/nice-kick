@@ -16,8 +16,11 @@ export default class SessionList extends Component {
           </button>
         </div>
         {
-            this.props.sessions.map(session =>
-            <SessionCard key={session.id} session={session} editSession={this.props.editSession} deleteSession={this.props.deleteSession} {...this.props} />
+          this.props.sessions.filter(
+            session => session.userId === Number(sessionStorage.getItem("credentials")))
+            .map(session =>
+            <SessionCard key={session.id} session={session} editSession={this.props.editSession}
+                         deleteSession={this.props.deleteSession} {...this.props} />
         )
     }
       </section>

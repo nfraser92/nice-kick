@@ -5,7 +5,8 @@ export default class UserList extends Component {
         return (
             <section className="users">
                 {
-                    this.props.users.map(user =>
+                    this.props.users.filter(user => user.userId === Number(sessionStorage.getItem("credentials")))
+                    .map(user =>
                         <div className="user" key={user.id}>
                             <div>Name: {user.firstName} {user.lastName}</div>
                             <div>Age: {user.age}</div>

@@ -6,7 +6,7 @@ export default class SessionCard extends Component {
 
         return (
             <React.Fragment>
-                <div key={this.props.session.id} className="newsCard">
+                <div key={session.id} className="newsCard">
                 <div className="card-body">
                 <div key ={session.id}>
                 <div>Title: {session.location}</div>
