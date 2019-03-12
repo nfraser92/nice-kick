@@ -6,6 +6,7 @@ import UserManager from "../modules/UserManager"
 import SessionList from "./sessions/SessionList";
 import AddSessionForm from "./sessions/SessionAddForm";
 import Login from "./auth/Login"
+import SessionEditForm from "./sessions/SessionEditForm";
 
 class ApplicationViews extends Component {
   state = {
@@ -27,12 +28,17 @@ class ApplicationViews extends Component {
     .then(sessions => this.setState({ sessions: sessions}))
   }
 
+  editSession = editedSession => {
+    return SessionManager.put(editedSession)
+      .then(() => SessionManager.getAll())
+      .then(sessions => this.setState({ sessions: sessions }));
+  };
+
   componentDidMount() {
     SessionManager.sortSessions(this.props.activeUser.id).then(sessions => this.setState({sessions: sessions}))
 
     UserManager.getAll().then(users => this.setState({users: users}))
 
-    console.log(this.props.activeUserId)
   }
   render() {
     return (
@@ -48,7 +54,7 @@ class ApplicationViews extends Component {
         }}
       } />
 
-<Route exact path="/sessions" render={props => {
+      <Route exact path="/sessions" render={props => {
         if (this.isAuthenticated()) {
           return <SessionList {...props}
                               activeUser={this.state.activeUser}
@@ -57,14 +63,20 @@ class ApplicationViews extends Component {
         }}
       } />
 
-<Route exact path="/sessions/new" render={props => {
-        if (this.isAuthenticated()) {
+      <Route exact path="/sessions/new" render={props => {
           return <AddSessionForm {...props}
                               addSession={this.addSession}
                               activeUser={this.state.activeUser}
                               sessions={this.state.sessions} />
-        }}
-      } />
+        }} />
+
+      <Route exact path="/sessions/:sessionId(\d+)/edit" render={props => {
+            return <SessionEditForm {...props}
+                        sessions={this.state.sessions}
+                        editSession={this.editSession} />
+        }} />
+
+
 
     </React.Fragment>
   )
