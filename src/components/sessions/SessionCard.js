@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Sessions.css"
 
 export default class SessionCard extends Component {
     render () {
@@ -6,14 +7,19 @@ export default class SessionCard extends Component {
 
         return (
             <React.Fragment>
+                <section className="sessions">
                 <div key={session.id} className="newsCard">
                 <div className="card-body">
                 <div key ={session.id}>
-                <div>Title: {session.location}</div>
-                        {/* <div>Synopsis: {session.summary}</div>
-                        <div> <a href={`${session.url}`}>Read session </a> </div>
-                        <div>Date: {session.timestamp}</div> */}
-                        {/* <button
+                <div>Date: {session.date}</div>
+                <div>Location: {session.location}</div>
+                        <div>Attempted: {session.shotsTaken} Shots</div>
+                        <div>Area of Field: {session.areaOfField}</div>
+                        <div>Distance: {session.distance}</div>
+                        <div>Scored: {session.scored}</div>
+                        <div>Shooting with: {session.foot} foot</div>
+                        <div>Comments: {session.comments}</div>
+                         <button
                             type="button"
                             className="btn btn-success"
                             onClick={() => {
@@ -23,12 +29,13 @@ export default class SessionCard extends Component {
                             }}
                         >Edit</button>
                         <button
-                            onClick={() => this.props.deleteNews(session.id)
+                            onClick={() => this.props.deleteSession(session.id)
                                 .then(() => this.props.history.push("/sessions"))}
-                            className="btn red-btn-success">Delete</button> */}
+                            className="btn red-btn-success">Delete</button>
                 </div>
                 </div>
                 </div>
+                </section>
             </React.Fragment>
         )
     }

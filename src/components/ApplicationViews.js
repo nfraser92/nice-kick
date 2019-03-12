@@ -22,6 +22,11 @@ class ApplicationViews extends Component {
     .then(sessions => this.setState({sessions: sessions}))
   }
 
+  deleteSession = (id) => {
+    return SessionManager.deleteAndList(id)
+    .then(sessions => this.setState({ sessions: sessions}))
+  }
+
   componentDidMount() {
     SessionManager.sortSessions(this.props.activeUser.id).then(sessions => this.setState({sessions: sessions}))
 
@@ -47,6 +52,7 @@ class ApplicationViews extends Component {
         if (this.isAuthenticated()) {
           return <SessionList {...props}
                               activeUser={this.state.activeUser}
+                              deleteSession={this.deleteSession}
                               sessions={this.state.sessions} />
         }}
       } />

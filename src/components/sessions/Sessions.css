@@ -1,0 +1,26 @@
+.red-btn-success {
+    background: red;
+    color: white;
+    margin: 20px
+}
+
+.card-body {
+    background: lightgoldenrodyellow;
+    margin: 15px;
+    padding: 10px;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px
+}
+
+.sessions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap
+}
+
+.newsCard {
+    width: 250px;
+    margin: 20px;
+}

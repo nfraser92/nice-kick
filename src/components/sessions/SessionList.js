@@ -5,16 +5,16 @@ export default class SessionList extends Component {
   render() {
 
     return (
-      <section className="sessions">
-      <div className="btn add-session-button">
+      <React.Fragment>
+      <section className="btn add-session-button">
           <button type="button"
           onClick={() => {
-              this.props.history.push("/sessions/new")
+            this.props.history.push("/sessions/new")
           }}
           className="btn btn-success">
            Add New Session
           </button>
-        </div>
+        </section>
         {
           this.props.sessions.filter(
             session => session.userId === Number(sessionStorage.getItem("credentials")))
@@ -23,7 +23,7 @@ export default class SessionList extends Component {
                          deleteSession={this.props.deleteSession} {...this.props} />
         )
     }
-      </section>
+      </React.Fragment>
     );
   }
 }
