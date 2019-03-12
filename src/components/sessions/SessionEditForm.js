@@ -26,12 +26,12 @@ export default class SessionEditForm extends Component {
         const editedSession = {
             date: this.state.date,
             location: this.state.location,
-            shots: this.state.shots,
+            shotsTaken: this.state.shots,
             userId: parseInt(sessionStorage.getItem("credentials")),
-            area: this.state.area,
-            from: this.state.distance,
+            areaOfField: this.state.area,
+            distance: this.state.from,
             scored: this.state.scored,
-            taken: this.state.taken,
+            foot: this.state.taken,
             comments: this.state.comments,
             id: this.props.match.params.sessionId
         };
@@ -110,13 +110,13 @@ export default class SessionEditForm extends Component {
                           />
                       </div>
                       <div className="form-group">
-                          <label htmlFor="distance">Distance</label>
+                          <label htmlFor="from">Distance</label>
                           <input
                               type="text"
                               required
                               className="form-control"
                               onChange={this.handleFieldChange}
-                              id="distance"
+                              id="from"
                               placeholder="How far from goal were you?"
                               value={this.state.from}
                           />

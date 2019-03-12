@@ -15,8 +15,8 @@ export default class SessionCard extends Component {
                 <div>Location: {session.location}</div>
                         <div>Attempted: {session.shotsTaken} Shots</div>
                         <div>Area of Field: {session.areaOfField}</div>
-                        <div>Distance: {session.distance}</div>
-                        <div>Scored: {session.scored}</div>
+                        <div>Distance: {session.distance} yards</div>
+                        <div>Scored: {session.scored} goals</div>
                         <div>Shooting with: {session.foot} foot</div>
                         <div>Comments: {session.comments}</div>
                          <button
