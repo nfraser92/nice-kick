@@ -125,8 +125,8 @@ export default class extends Component {
                             required
                             className="form-control"
                             onChange={this.handleFieldChange}
-                            id="scored"
-                            placeholder="Comments"
+                            id="comments"
+                            placeholder="comments"
                         />
                     </div>
                     <button
