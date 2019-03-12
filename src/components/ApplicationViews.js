@@ -30,7 +30,7 @@ class ApplicationViews extends Component {
 
   editSession = editedSession => {
     return SessionManager.put(editedSession)
-      .then(() => SessionManager.getAll())
+      .then(() => SessionManager.sortSessions())
       .then(sessions => this.setState({ sessions: sessions }));
   };
 
@@ -75,9 +75,6 @@ class ApplicationViews extends Component {
                         sessions={this.state.sessions}
                         editSession={this.editSession} />
         }} />
-
-
-
     </React.Fragment>
   )
   }
