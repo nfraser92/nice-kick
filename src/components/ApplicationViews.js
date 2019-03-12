@@ -19,15 +19,13 @@ class ApplicationViews extends Component {
   }
 
   componentDidMount() {
-    SessionManager.getAll().then(sessions => this.setState({sessions: sessions}))
+    SessionManager.sortSessions(this.props.activeUser.id).then(sessions => this.setState({sessions: sessions}))
 
     UserManager.getAll().then(users => this.setState({users: users}))
 
-    
-
+    console.log(this.props.activeUserId)
   }
   render() {
-
     return <React.Fragment>
       <Route exact path="/users" render={props => {
         return (

@@ -15,6 +15,13 @@ export default Object.create(null, {
     }
   },
 
+  getAllUserSessions: {
+    value: function () {
+      return fetch(`${Settings.remoteURL}/${this.desiredDatabase}`)
+        .then(r => r.json())
+    }
+  },
+
   deleteAndList: {
     value: function (id) {
       return fetch(`${Settings.remoteURL}/${this.desiredDatabase}/${id}`, {
@@ -54,7 +61,7 @@ export default Object.create(null, {
 
   sortSessions: {
     value: function (activeUser) {
-      return fetch(`${Settings.remoteURL}/sessions?/userId=${activeUser}&_sort=timestamp&_order=desc`)
+      return fetch(`${Settings.remoteURL}/sessions?/userId=${activeUser}&_sort=date&_order=desc`)
         .then(r => r.json())
     }
   }
