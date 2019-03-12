@@ -5,12 +5,16 @@ import UserList from "./users/UserList";
 import UserManager from "../modules/UserManager"
 import SessionList from "./sessions/SessionList";
 import AddSessionForm from "./sessions/SessionAddForm";
+import Login from "./auth/Login"
 
 class ApplicationViews extends Component {
   state = {
     users: [],
-    sessions: []
+    sessions: [],
+    activeUser: {}
   }
+
+  isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
   addSession = newSession => {
     return SessionManager.post(newSession)
@@ -26,27 +30,38 @@ class ApplicationViews extends Component {
     console.log(this.props.activeUserId)
   }
   render() {
-    return <React.Fragment>
+    return (
+      <React.Fragment>
+
+      <Route path="/login" component={Login} />
+
       <Route exact path="/users" render={props => {
-        return (
-          <UserList users={this.state.users}
-          {...props}  />
-          );
-        }} />
+        if (this.isAuthenticated()) {
+          return <UserList {...props}
+                           activeUser={this.state.activeUser}
+                           users={this.state.users} />
+        }}
+      } />
 
-      <Route exact path="/sessions" render={props => {
-        return (
-          <SessionList sessions={this.state.sessions}
-                       {...props}  />
-          );
-        }} />
+<Route exact path="/sessions" render={props => {
+        if (this.isAuthenticated()) {
+          return <SessionList {...props}
+                              activeUser={this.state.activeUser}
+                              sessions={this.state.sessions} />
+        }}
+      } />
 
-<Route path="/sessions/new" render={(props) => {
-                    return <AddSessionForm {...props}
-                                addSession={this.addSession}
-                                sessions={this.state.sessions} />
-                }} />
+<Route exact path="/sessions/new" render={props => {
+        if (this.isAuthenticated()) {
+          return <AddSessionForm {...props}
+                              addSession={this.addSession}
+                              activeUser={this.state.activeUser}
+                              sessions={this.state.sessions} />
+        }}
+      } />
+
     </React.Fragment>
+  )
   }
 }
 
