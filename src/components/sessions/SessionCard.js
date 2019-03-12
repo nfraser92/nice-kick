@@ -6,11 +6,9 @@ export default class SessionCard extends Component {
         let session = this.props.session
 
         return (
-            <React.Fragment>
                 <section className="sessions">
                 <div key={session.id} className="newsCard">
                 <div className="card-body">
-                <div key ={session.id}>
                 <div>Date: {session.date}</div>
                 <div>Location: {session.location}</div>
                         <div>Attempted: {session.shotsTaken} Shots</div>
@@ -34,9 +32,7 @@ export default class SessionCard extends Component {
                             className="btn red-btn-success">Delete</button>
                 </div>
                 </div>
-                </div>
                 </section>
-            </React.Fragment>
         )
     }
 }
