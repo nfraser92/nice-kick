@@ -60,8 +60,8 @@ export default Object.create(null, {
   },
 
   sortSessions: {
-    value: function (activeUser) {
-      return fetch(`${Settings.remoteURL}/sessions?/userId=${activeUser}&_sort=date&_order=desc`)
+    value: function () {
+      return fetch(`${Settings.remoteURL}/sessions?/userId=${sessionStorage.getItem("credentials")}&_sort=date&_order=desc`)
         .then(r => r.json())
     }
   }

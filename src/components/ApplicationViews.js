@@ -12,7 +12,6 @@ class ApplicationViews extends Component {
   state = {
     users: [],
     sessions: [],
-    friends: [],
   }
 
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
@@ -35,7 +34,7 @@ class ApplicationViews extends Component {
   };
 
   componentDidMount() {
-    SessionManager.sortSessions(this.props.activeUser.id).then(sessions => this.setState({sessions: sessions}))
+    SessionManager.sortSessions().then(sessions => this.setState({sessions: sessions}))
 
     UserManager.getAll().then(users => this.setState({users: users}))
 
