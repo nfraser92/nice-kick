@@ -64,6 +64,6 @@ export default Object.create(null, {
       return fetch(`${Settings.remoteURL}/sessions?/userId=${sessionStorage.getItem("credentials")}&_sort=date&_order=desc`)
         .then(r => r.json())
     }
-  }
+  },
 
 })

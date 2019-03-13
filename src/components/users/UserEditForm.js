@@ -32,7 +32,7 @@ export default class UserEditForm extends Component {
         .then(() => this.props.history.push("/users"))
     }
         componentDidMount() {
-            NewUserManager.edit(this.props.match.params.userId)
+            NewUserManager.put(this.props.match.params.userId)
             .then(user => {
                 this.setState({
                     firstName: user.firstName,

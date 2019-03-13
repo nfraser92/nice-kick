@@ -7,6 +7,8 @@ import SessionList from "./sessions/SessionList";
 import AddSessionForm from "./sessions/SessionAddForm";
 import Login from "./auth/Login"
 import SessionEditForm from "./sessions/SessionEditForm";
+import NewUserManager from "../modules/NewUserManager";
+import UserEditForm from "../components/users/UserEditForm"
 
 class ApplicationViews extends Component {
   state = {
@@ -33,6 +35,12 @@ class ApplicationViews extends Component {
       .then(sessions => this.setState({ sessions: sessions }));
   };
 
+  editUser = editedUser => {
+    return NewUserManager.put(editedUser)
+    .then(() => UserManager.All())
+    .then(users => this.setState({ users: users }));
+  }
+
   componentDidMount() {
     SessionManager.sortSessions().then(sessions => this.setState({sessions: sessions}))
 
@@ -49,7 +57,8 @@ class ApplicationViews extends Component {
         if (this.isAuthenticated()) {
           return <UserList {...props}
                            activeUser={this.state.activeUser}
-                           users={this.state.users} />
+                           users={this.state.users}
+                           editUser={this.editUser} />
         }}
       } />
 
@@ -73,6 +82,12 @@ class ApplicationViews extends Component {
             return <SessionEditForm {...props}
                         sessions={this.state.sessions}
                         editSession={this.editSession} />
+        }} />
+
+      <Route exact path="/users/:userId(\d+)/edit" render={props => {
+            return <UserEditForm {...props}
+                        users={this.state.users}
+                        editUser={this.editUser} />
         }} />
     </React.Fragment>
   )
