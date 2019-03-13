@@ -12,7 +12,7 @@ class ApplicationViews extends Component {
   state = {
     users: [],
     sessions: [],
-    activeUser: {}
+    friends: [],
   }
 
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
