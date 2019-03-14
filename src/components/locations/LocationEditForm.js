@@ -25,7 +25,7 @@ export default class LocationEditForm extends Component {
             comments: this.state.comments
         };
 
-        this.props.put(editedLocation)
+        this.props.editLocation(editedLocation)
         .then(() => this.props.history.push("/locations"))
 
     }
