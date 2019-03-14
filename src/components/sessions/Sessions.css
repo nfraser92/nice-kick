@@ -16,11 +16,20 @@
 .sessions {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap
 }
 
 .newsCard {
     width: 250px;
     margin: 20px;
+}
+
+.form-group {
+    margin: auto;
+    width: 50%
+}
+
+.btn-primary {
+    margin: 15px;
 }
