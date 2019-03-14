@@ -52,6 +52,11 @@ class ApplicationViews extends Component {
     .then(locations => this.setState({locations: locations}))
   }
 
+  deleteLocation = (id) => {
+    return LocationManager.deleteAndList(id)
+    .then(locations => this.setState({ locations: locations}))
+  }
+
   componentDidMount() {
     SessionManager.sortSessions().then(sessions => this.setState({sessions: sessions}))
 
@@ -106,7 +111,8 @@ class ApplicationViews extends Component {
     <Route exact path="/locations" render={props => {
         if (this.isAuthenticated()) {
           return <LocationList {...props}
-                              locations={this.state.locations} />
+                              locations={this.state.locations}
+                              deleteLocation={this.deleteLocation} />
         }}
       } />
 

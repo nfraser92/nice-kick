@@ -1,14 +1,17 @@
 import React, { Component } from "react"
+import "./Locations.css"
 
 export default class LocationList extends Component {
     render () {
         return (
             <React.Fragment>
             <section className="locations">
-                <h1>Locations</h1>
+            <div className="headerholder">
+                <h1>Fields</h1>
+                </div>
                 <div className="locationButton">
                     <button type="button"
-                        className="location-button"
+                        className="btn btn-success"
                         onClick={() => {
                             this.props.history.push("/locations/new")
                         }}> Add New Location
@@ -28,6 +31,10 @@ export default class LocationList extends Component {
                             >
                                 Edit
                             </button>
+                            <button
+                            onClick={() => this.props.deleteLocation(location.id)
+                                .then(() => this.props.history.push("/locations"))}
+                            className="btn red-btn-success">Delete</button>
                         </div>
                     )
 
