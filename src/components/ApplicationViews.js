@@ -9,13 +9,16 @@ import Login from "./auth/Login"
 import SessionEditForm from "./sessions/SessionEditForm";
 import UserEditForm from "../components/users/UserEditForm"
 import NewUserManager from "../modules/NewUserManager"
-import APIManger from "../modules/APIManger";
+import LocationManager from "../modules/LocationManager";
+import LocationList from "./locations/LocationList";
+import AddLocationForm from "./locations/AddLocationForm";
 
 
 class ApplicationViews extends Component {
   state = {
     users: [],
     sessions: [],
+    locations: []
   }
 
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
@@ -43,10 +46,18 @@ class ApplicationViews extends Component {
     .then(users => this.setState({ users: users }));
   }
 
+  addLocation = newLocation => {
+    return LocationManager.post(newLocation)
+    .then(() => LocationManager.getAll())
+    .then(locations => this.setState({locations: locations}))
+  }
+
   componentDidMount() {
     SessionManager.sortSessions().then(sessions => this.setState({sessions: sessions}))
 
     UserManager.getAll().then(users => this.setState({users: users}))
+
+    LocationManager.getAll().then(locations => this.setState({locations: locations}))
 
   }
   render() {
@@ -63,6 +74,12 @@ class ApplicationViews extends Component {
                            editUser={this.editUser} />
         }}
       } />
+      <Route exact path="/users/:userId(\d+)/edit" render={props => {
+                  return <UserEditForm {...props}
+                              users={this.state.users}
+                              activeUser={this.state.activeUser}
+                              editUser={this.editUser} />
+              }} />
 
       <Route exact path="/sessions" render={props => {
         if (this.isAuthenticated()) {
@@ -86,12 +103,20 @@ class ApplicationViews extends Component {
                         editSession={this.editSession} />
         }} />
 
-<Route exact path="/users/:userId(\d+)/edit" render={props => {
-            return <UserEditForm {...props}
-                        users={this.state.users}
-                        activeUser={this.state.activeUser}
-                        editUser={this.editUser} />
+    <Route exact path="/locations" render={props => {
+        if (this.isAuthenticated()) {
+          return <LocationList {...props}
+                              locations={this.state.locations} />
+        }}
+      } />
+
+    <Route exact path="/locations/new" render={props => {
+          return <AddLocationForm {...props}
+                              addLocation={this.addLocation}
+                              activeUser={this.state.activeUser}
+                              locations={this.state.locations} />
         }} />
+
     </React.Fragment>
   )
   }

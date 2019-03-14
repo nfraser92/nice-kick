@@ -26,6 +26,11 @@ class Nav extends Component {
               Sessions
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/locations">
+              Locations
+            </Link>
+          </li>
         </ul>
         Hello {this.props.activeUser.username}
         <button
