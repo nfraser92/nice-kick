@@ -53,7 +53,7 @@ export default class extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="location">Date</label>
+                        <label htmlFor="location">Field</label>
                         <input
                             type="text"
                             required
