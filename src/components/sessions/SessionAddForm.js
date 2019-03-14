@@ -54,14 +54,20 @@ export default class extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="location">Field</label>
-                        <input
-                            type="text"
-                            required
+                        <select
+                            defaultValue=""
                             className="form-control"
-                            onChange={this.handleFieldChange}
+                            name="location"
                             id="location"
-                            placeholder="Enter Field"
-                        />
+                            onChange={this.handleFieldChange}
+                            >
+                            <option value="">Field</option>
+                            {this.props.locations.map(l => (
+                                <option key={l.id} id={l.id} value={l.name}>
+                                {l.name}
+                                </option>
+                            ))}
+                            </select>
                     </div>
                     <div className="form-group">
                         <label htmlFor="shotsTaken">Shots Taken</label>

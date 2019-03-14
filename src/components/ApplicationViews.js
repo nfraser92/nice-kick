@@ -98,6 +98,7 @@ class ApplicationViews extends Component {
           return <SessionList {...props}
                               activeUser={this.state.activeUser}
                               deleteSession={this.deleteSession}
+                              locations={this.state.locations}
                               sessions={this.state.sessions} />
         }}
       } />
@@ -105,6 +106,7 @@ class ApplicationViews extends Component {
       <Route exact path="/sessions/new" render={props => {
           return <AddSessionForm {...props}
                               addSession={this.addSession}
+                              locations={this.state.locations}
                               activeUser={this.state.activeUser}
                               sessions={this.state.sessions} />
         }} />
