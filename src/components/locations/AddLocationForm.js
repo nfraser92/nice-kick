@@ -4,7 +4,8 @@ export default class AddLocationForm extends Component {
   // Set initial state
   state = {
     name: "",
-    address: ""
+    address: "",
+    comments: ""
   };
 
   // Update state whenever an input field is edited
@@ -25,7 +26,8 @@ export default class AddLocationForm extends Component {
     } else {
       const location = {
         name: this.state.name,
-        address: this.state.address
+        address: this.state.address,
+        comments: this.state.comments
       };
 
       // Create the animal and redirect user to location list
@@ -60,6 +62,18 @@ export default class AddLocationForm extends Component {
               id="address"
               placeholder="Field Address"
               value={this.state.address}
+              />
+          </div>
+          <div className="form-group">
+            <label htmlFor="comments">Comments</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={this.handleFieldChange}
+              id="comments"
+              placeholder="Comments"
+              value={this.state.comments}
               />
           </div>
           <button

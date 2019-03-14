@@ -21,12 +21,13 @@ export default class LocationList extends Component {
                     this.props.locations.map(location =>
                         <div key={location.id}>
                             <div><h3>{location.name}</h3></div>
-                            <div>{location.address}</div>
+                            <div>Address: {location.address}</div>
+                            <div>Comments: {location.comments}</div>
                             <button
                                 type="button"
                                 className="btn btn-success"
                                 onClick={() => {
-                                    this.props.history.push(`/Locations/${this.props.location.id}/edit`);
+                                    this.props.history.push(`/locations/${location.id}/edit`);
                                 }}
                             >
                                 Edit

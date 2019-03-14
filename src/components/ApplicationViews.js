@@ -12,6 +12,7 @@ import NewUserManager from "../modules/NewUserManager"
 import LocationManager from "../modules/LocationManager";
 import LocationList from "./locations/LocationList";
 import AddLocationForm from "./locations/AddLocationForm";
+import LocationEditForm from "./locations/LocationEditForm";
 
 
 class ApplicationViews extends Component {
@@ -51,6 +52,12 @@ class ApplicationViews extends Component {
     .then(() => LocationManager.getAll())
     .then(locations => this.setState({locations: locations}))
   }
+
+  editLocation = editedLocation => {
+    return LocationManager.put(editedLocation)
+      .then(() => LocationManager.getAll())
+      .then(locations => this.setState({ locations: locations }));
+  };
 
   deleteLocation = (id) => {
     return LocationManager.deleteAndList(id)
@@ -121,6 +128,12 @@ class ApplicationViews extends Component {
                               addLocation={this.addLocation}
                               activeUser={this.state.activeUser}
                               locations={this.state.locations} />
+        }} />
+
+    <Route exact path="/locations/:locationId(\d+)/edit" render={props => {
+            return <LocationEditForm {...props}
+                        locations={this.state.sessions}
+                        editLocation={this.editLocation} />
         }} />
 
     </React.Fragment>
