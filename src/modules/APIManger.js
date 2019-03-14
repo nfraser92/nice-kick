@@ -47,15 +47,15 @@ export default Object.create(null, {
   },
 
   put: {
-    value: function (obj) {
-      return fetch(`${Settings.remoteURL}/${this.desiredDatabase}/${obj.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(obj)
-      })
-        .then(r => r.json())
+    value: function(obj) {
+        return fetch(`${Settings.remoteURL}/${this.desiredDatabase}/${obj.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+        })
+        .then(e => e.json())
     }
   },
 
@@ -66,4 +66,15 @@ export default Object.create(null, {
     }
   },
 
+  editUser: {
+    value: function (newObject) {
+      return fetch(`${Settings.remoteURL}/users/${sessionStorage.getItem("credentials")}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newObject)
+      })
+    }
+  }
 })
