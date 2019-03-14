@@ -134,14 +134,14 @@ export default class extends Component {
                             id="comments"
                             placeholder="comments"
                         />
-                    </div>
                     <button
           type="submit"
           onClick={this.constructNewSession}
           className="btn btn-primary"
-        >
+          >
           Submit
         </button>
+          </div>
                     </form>
             </React.Fragment>
         )
