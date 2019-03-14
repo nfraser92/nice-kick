@@ -21,14 +21,18 @@ export default {
       body: JSON.stringify(obj)
     }).then(data => data.json())
   },
-  searchUP(username, password) {
-    return fetch(
-      `${Settings.remoteURL}/users?username=${username}&password=${password}`
-    ).then(e => e.json())
-  },
+
+    searchUP(username, password) {
+      return fetch(
+        `${Settings.remoteURL}/users?username=${username}&password=${password}`
+      ).then(e => e.json())
+    },
+
   searchUsername(username) {
     return fetch(`${Settings.remoteURL}/users?username=${username}`).then(e =>
       e.json()
     )
+  },
+
+  
   }
-}

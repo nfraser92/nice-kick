@@ -7,8 +7,10 @@ import SessionList from "./sessions/SessionList";
 import AddSessionForm from "./sessions/SessionAddForm";
 import Login from "./auth/Login"
 import SessionEditForm from "./sessions/SessionEditForm";
-import NewUserManager from "../modules/NewUserManager";
 import UserEditForm from "../components/users/UserEditForm"
+import NewUserManager from "../modules/NewUserManager"
+import APIManger from "../modules/APIManger";
+
 
 class ApplicationViews extends Component {
   state = {
@@ -37,7 +39,7 @@ class ApplicationViews extends Component {
 
   editUser = editedUser => {
     return NewUserManager.put(editedUser)
-    .then(() => UserManager.All())
+    .then(() => UserManager.getAll())
     .then(users => this.setState({ users: users }));
   }
 
@@ -84,9 +86,10 @@ class ApplicationViews extends Component {
                         editSession={this.editSession} />
         }} />
 
-      <Route exact path="/users/:userId(\d+)/edit" render={props => {
+<Route exact path="/users/:userId(\d+)/edit" render={props => {
             return <UserEditForm {...props}
                         users={this.state.users}
+                        activeUser={this.state.activeUser}
                         editUser={this.editUser} />
         }} />
     </React.Fragment>
