@@ -114,6 +114,7 @@ class ApplicationViews extends Component {
       <Route exact path="/sessions/:sessionId(\d+)/edit" render={props => {
             return <SessionEditForm {...props}
                         sessions={this.state.sessions}
+                        locations={this.state.locations}
                         editSession={this.editSession} />
         }} />
 

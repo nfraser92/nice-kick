@@ -74,17 +74,22 @@ export default class SessionEditForm extends Component {
                         />
                     </div>
                     <div className="form-group">
-                          <label htmlFor="location">Location</label>
-                          <input
-                              type="text"
-                              required
-                              className="form-control"
-                              onChange={this.handleFieldChange}
-                              id="location"
-                              placeholder="locaion"
-                              value={this.state.location}
-                          />
-                      </div>
+                        <label htmlFor="location">Field</label>
+                        <select
+                            defaultValue=""
+                            className="form-control"
+                            name="location"
+                            id="location"
+                            onChange={this.handleFieldChange}
+                            >
+                            <option value="">Field</option>
+                            {this.props.locations.map(l => (
+                                <option key={l.id} id={l.id} value={l.name}>
+                                {l.name}
+                                </option>
+                            ))}
+                            </select>
+                    </div>
                       <div className="form-group">
                           <label htmlFor="shots">Shots Attempted</label>
                           <input
