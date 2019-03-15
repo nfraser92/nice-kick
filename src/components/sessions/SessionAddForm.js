@@ -82,14 +82,18 @@ export default class extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="area">Area</label>
-                        <input
-                            type="text"
-                            required
+                        <select
+                            defaultValue="foot"
                             className="form-control"
-                            onChange={this.handleFieldChange}
+                            name="area"
                             id="area"
-                            placeholder="eg. central, left, right"
-                        />
+                            onChange={this.handleFieldChange}>
+
+                        <option value="">Area</option>
+                        <option id ="Left" value="Left">Left</option>
+                        <option id ="Right" value="Right">Right</option>
+                        <option id ="Center" value="Center">Center</option>
+                            </select>
                     </div>
                     <div className="form-group">
                         <label htmlFor="from">From</label>
@@ -115,14 +119,17 @@ export default class extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="taken">Taken With</label>
-                        <input
-                            type="text"
-                            required
+                        <select
+                            defaultValue="foot"
                             className="form-control"
-                            onChange={this.handleFieldChange}
+                            name="taken"
                             id="taken"
-                            placeholder="Which foot did you shoot with?"
-                        />
+                            onChange={this.handleFieldChange}>
+
+                        <option value="">Foot</option>
+                        <option id ="Left" value="Left">Left</option>
+                        <option id ="Right" value="Right">Right</option>
+                            </select>
                     </div>
                     <div className="form-group">
                         <label htmlFor="comments">Comments</label>

@@ -103,17 +103,20 @@ export default class SessionEditForm extends Component {
                           />
                       </div>
                       <div className="form-group">
-                          <label htmlFor="area">Area of Field</label>
-                          <input
-                              type="text"
-                              required
-                              className="form-control"
-                              onChange={this.handleFieldChange}
-                              id="area"
-                              placeholder="eg. central, left side, right side"
-                              value={this.state.area}
-                          />
-                      </div>
+                        <label htmlFor="area">Area</label>
+                        <select
+                            defaultValue="foot"
+                            className="form-control"
+                            name="area"
+                            id="area"
+                            onChange={this.handleFieldChange}>
+
+                        <option value="">Area</option>
+                        <option id ="Left" value="Left">Left</option>
+                        <option id ="Right" value="Right">Right</option>
+                        <option id ="Center" value="Center">Center</option>
+                            </select>
+                    </div>
                       <div className="form-group">
                           <label htmlFor="from">Distance</label>
                           <input
@@ -139,17 +142,19 @@ export default class SessionEditForm extends Component {
                           />
                       </div>
                       <div className="form-group">
-                          <label htmlFor="taken">Taken with</label>
-                          <input
-                              type="text"
-                              required
-                              className="form-control"
-                              onChange={this.handleFieldChange}
-                              id="taken"
-                              placeholder="Left or right foot?"
-                              value={this.state.taken}
-                          />
-                      </div>
+                        <label htmlFor="taken">Taken With</label>
+                        <select
+                            defaultValue="foot"
+                            className="form-control"
+                            name="taken"
+                            id="taken"
+                            onChange={this.handleFieldChange}>
+
+                        <option value="">Foot</option>
+                        <option id ="Left" value="Left">Left</option>
+                        <option id ="Right" value="Right">Right</option>
+                            </select>
+                    </div>
                       <div className="form-group">
                           <label htmlFor="comments">comments</label>
                           <input
