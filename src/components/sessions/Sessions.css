@@ -8,9 +8,10 @@
     background: lightgoldenrodyellow;
     margin: 15px;
     padding: 10px;
-    border: 1.5px solid black;
+    border: 1.5px solid grey;
     border-radius: 10px;
-    box-shadow: 2px 2px
+    box-shadow: 2px 2px;
+    height: 20rem
 }
 
 .sessions {

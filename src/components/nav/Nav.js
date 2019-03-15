@@ -28,7 +28,7 @@ class Nav extends Component {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/locations">
-              Locations
+              Fields
             </Link>
           </li>
         </ul>

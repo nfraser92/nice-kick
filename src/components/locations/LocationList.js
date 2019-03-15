@@ -14,7 +14,7 @@ export default class LocationList extends Component {
                         className="btn btn-success"
                         onClick={() => {
                             this.props.history.push("/locations/new")
-                        }}> Add New Location
+                        }}> Add New Field
                 </button>
                 </div>
                 {
