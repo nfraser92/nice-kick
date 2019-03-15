@@ -16,13 +16,13 @@ export default class AddLocationForm extends Component {
   };
 
   /*
-        Local method for validation, creating animal object, and
+        Local method for validation, creating object, and
         invoking the function reference passed from parent component
      */
   constructNewLocation = evt => {
     evt.preventDefault();
     if (this.state.location && this.state.address === "") {
-      window.alert("Please enter location information");
+      window.alert("Please enter field information");
     } else {
       const location = {
         name: this.state.name,
@@ -30,7 +30,7 @@ export default class AddLocationForm extends Component {
         comments: this.state.comments
       };
 
-      // Create the animal and redirect user to location list
+      // Create the field and redirect user to location list
       this.props.addLocation(location)
         .then(() => this.props.history.push("/locations"));
     }

@@ -17,10 +17,10 @@ export default class UserList extends Component {
           </button>
         </div>
             <section className="user">
+
                 {
 
                     this.props.users.filter(user => user.userId === Number(sessionStorage.getItem("credentials")))
-
                     .map(user =>
                         <div className="userCard" key={user.id}>
                         <div className="imageHolder">

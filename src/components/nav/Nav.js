@@ -32,7 +32,6 @@ class Nav extends Component {
             </Link>
           </li>
         </ul>
-        Hello {this.props.activeUser.username}
         <button
           type="button"
           className="btn btn-outline-info"

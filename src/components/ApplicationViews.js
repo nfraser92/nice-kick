@@ -13,6 +13,7 @@ import LocationManager from "../modules/LocationManager";
 import LocationList from "./locations/LocationList";
 import AddLocationForm from "./locations/AddLocationForm";
 import LocationEditForm from "./locations/LocationEditForm";
+import Home from "./home/home";
 
 
 class ApplicationViews extends Component {
@@ -78,6 +79,11 @@ class ApplicationViews extends Component {
 
       <Route path="/login" component={Login} />
 
+      <Route exact path="/" render={props => {
+        if (this.isAuthenticated()) {
+          return <Home />
+        }}
+      } />
       <Route exact path="/users" render={props => {
         if (this.isAuthenticated()) {
           return <UserList {...props}
