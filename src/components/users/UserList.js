@@ -6,15 +6,6 @@ export default class UserList extends Component {
     render() {
         return (
             <React.Fragment>
-      <div className="btn add-session-button">
-          <button type="button"
-          onClick={() => {
-            this.props.history.push("/sessions/new")
-          }}
-          className="btn btn-success">
-           Add New Session
-          </button>
-        </div>
             <section className="user">
 
                 {
@@ -37,7 +28,15 @@ export default class UserList extends Component {
                                     `/users/${user.id}/edit`
                                     );
                                 }}
-                                >Edit</button>
+                                >Edit</button>      <div className="btn add-session-button">
+                                <button type="button"
+                                onClick={() => {
+                                  this.props.history.push("/sessions/new")
+                                }}
+                                className="btn btn-success">
+                                 Add New Session
+                                </button>
+                              </div>
                         </div>
                     )
                 }
