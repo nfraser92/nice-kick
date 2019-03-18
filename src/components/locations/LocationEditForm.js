@@ -8,6 +8,7 @@ export default class LocationEditForm extends Component {
         name: "",
         address: "",
         comments: "",
+        enteredBy: parseInt(Number(sessionStorage.getItem("credentials")))
     }
 
     handleFieldChange = evt => {
@@ -25,7 +26,8 @@ export default class LocationEditForm extends Component {
             id: this.props.match.params.locationId,
             name: this.state.name,
             address: this.state.address,
-            comments: this.state.comments
+            comments: this.state.comments,
+            enteredBy: this.state.enteredBy
         };
 
         this.props.editLocation(editedLocation)

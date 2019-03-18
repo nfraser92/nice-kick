@@ -5,7 +5,8 @@ export default class AddLocationForm extends Component {
   state = {
     name: "",
     address: "",
-    comments: ""
+    comments: "",
+    enteredBy: parseInt(Number(sessionStorage.getItem("credentials")))
   };
 
   // Update state whenever an input field is edited
@@ -27,7 +28,8 @@ export default class AddLocationForm extends Component {
       const location = {
         name: this.state.name,
         address: this.state.address,
-        comments: this.state.comments
+        comments: this.state.comments,
+        enteredBy: this.state.enteredBy
       };
 
       // Create the field and redirect user to location list
