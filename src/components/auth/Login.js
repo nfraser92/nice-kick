@@ -20,7 +20,8 @@ export default class Login extends Component {
     e.preventDefault()
     const newUser = {
       username: this.state.username,
-      password: this.state.password
+      password: this.state.password,
+      email: this.state.email
     }
     if (this.state.username && this.state.password) {
       UserManager.searchUsername(this.state.username).then(users => {

@@ -4,7 +4,6 @@ import soccer from "./soccer_2.jpg"
 
 export default class UserList extends Component {
     render() {
-        console.log(this.props.users)
         return (
             <React.Fragment>
       <div className="btn add-session-button">
