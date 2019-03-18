@@ -7,3 +7,22 @@
     width: 100px;
     border-radius: 20px
 }
+
+.locations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid darkgrey;
+    width: 50%;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.location {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px
+}

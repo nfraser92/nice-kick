@@ -11,19 +11,18 @@ export default class LocationList extends Component {
             <div className="headerholder">
                 <h1>Fields <img src={field} className="field" alt="field"/></h1>
                 </div>
-                <div className="locationButton">
+            <div className="locationButton">
                     <button type="button"
                         className="btn btn-success"
                         onClick={() => {
                             this.props.history.push("/locations/new")
                         }}> Add New Field
                 </button>
-                </div>
                 {
                     this.props.locations.filter(
                         location => location.enteredBy === Number(sessionStorage.getItem("credentials")))
                         .map(location =>
-                        <div className="LocationCard" key={location.id}>
+                            <div className="location" key={location.id}>
                             <div><h3>{location.name}</h3></div>
                             <div>Address: {location.address}</div>
                             <div>Comments: {location.comments}</div>
@@ -39,11 +38,12 @@ export default class LocationList extends Component {
                             <button
                             onClick={() => this.props.deleteLocation(location.id)
                                 .then(() => this.props.history.push("/locations"))}
-                            className="btn red-btn-success">Delete</button>
+                                className="btn red-btn-success">Delete</button>
                         </div>
                     )
 
                 }
+                </div>
             </section>
         </React.Fragment>
         )
