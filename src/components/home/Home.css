@@ -1,16 +1,4 @@
-.home-page {
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    border-radius: 8px;
-    height: 500px;
-    width: 700px;
-}
 
-.title {
-    display: flex;
-    justify-content: center;
-    align-content: space-around;
-    align-items: flex-start
-}
+
+
+
