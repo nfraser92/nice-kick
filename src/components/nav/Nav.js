@@ -18,7 +18,7 @@ class Nav extends Component {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/users">
-              Users
+              Profile
             </Link>
           </li>
           <li className="nav-item">
@@ -32,7 +32,6 @@ class Nav extends Component {
             </Link>
           </li>
         </ul>
-        Hello {this.props.activeUser.username}
         <button
           type="button"
           className="btn btn-outline-info"

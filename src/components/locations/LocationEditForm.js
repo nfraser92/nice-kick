@@ -18,6 +18,9 @@ export default class LocationEditForm extends Component {
 
     updateExistingLocation = evt => {
         evt.preventDefault()
+        if (this.state.name && this.state.address && this.state.comments === " ")  {
+            window.alert("Please enter all required information");
+          } else {
         const editedLocation = {
             id: this.props.match.params.locationId,
             name: this.state.name,
@@ -27,7 +30,7 @@ export default class LocationEditForm extends Component {
 
         this.props.editLocation(editedLocation)
         .then(() => this.props.history.push("/locations"))
-
+    };
     }
             componentDidMount() {
                 LocationManager.get(this.props.match.params.locationId)

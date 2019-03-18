@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import "./Locations.css"
+import image from "./1.jpg"
+
 
 export default class LocationList extends Component {
     render () {
@@ -19,7 +21,7 @@ export default class LocationList extends Component {
                 </div>
                 {
                     this.props.locations.map(location =>
-                        <div key={location.id}>
+                        <div className="LocationCard" key={location.id}>
                             <div><h3>{location.name}</h3></div>
                             <div>Address: {location.address}</div>
                             <div>Comments: {location.comments}</div>
