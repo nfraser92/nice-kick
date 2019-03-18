@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./Locations.css"
-import image from "./1.jpg"
+import field from "./1.jpg"
 
 
 export default class LocationList extends Component {
@@ -9,7 +9,7 @@ export default class LocationList extends Component {
             <React.Fragment>
             <section className="locations">
             <div className="headerholder">
-                <h1>Fields</h1>
+                <h1>Fields <img src={field} className="field" alt="field"/></h1>
                 </div>
                 <div className="locationButton">
                     <button type="button"
