@@ -12,7 +12,7 @@ export default class SessionCard extends Component {
                 <div className="card-body">
                 <div><strong>Date:</strong>  {session.date}</div>
                 <div><strong>Location:</strong>  {session.location}</div>
-                <Link className="nav-link" to={`/sessions/${this.props.session.id}`}>Details</Link>
+                <Link className="nav-link link" to={`/sessions/${this.props.session.id}`}>Details</Link>
                          <button
                             type="button"
                             className="btn btn-success"
