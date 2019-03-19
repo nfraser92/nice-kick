@@ -6,7 +6,6 @@ export default class SessionList extends Component {
 
     return (
       <React.Fragment>
-      <section className="sessions">
       <div className="btn add-session-button">
           <button type="button"
           onClick={() => {
@@ -16,6 +15,7 @@ export default class SessionList extends Component {
            Add New Session
           </button>
         </div>
+      <section className="sessions">
         {
           this.props.sessions.filter(
             session => session.userId === Number(sessionStorage.getItem("credentials")))

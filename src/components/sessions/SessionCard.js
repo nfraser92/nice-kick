@@ -9,14 +9,14 @@ export default class SessionCard extends Component {
                 <section className="sessions">
                 <div key={session.id} className="newsCard">
                 <div className="card-body">
-                <div>Date: {session.date}</div>
-                <div>Location: {session.location}</div>
-                        <div>Attempted: {session.shotsTaken} Shots</div>
-                        <div>Area of Field: {session.areaOfField}</div>
-                        <div>Distance: {session.distance} yards</div>
-                        <div>Scored: {session.scored} goals</div>
-                        <div>Shooting with: {session.foot} foot</div>
-                        <div>Comments: {session.comments}</div>
+                <div><strong>Date:</strong>  {session.date}</div>
+                <div><strong>Location:</strong>  {session.location}</div>
+                        <div><strong>Attempted:</strong> {session.shotsTaken} Shots</div>
+                        <div><strong>Area of Field:</strong>  {session.areaOfField}</div>
+                        <div><strong>Distance:</strong> {session.distance} yards</div>
+                        <div><strong>Scored:</strong> {session.scored} goals</div>
+                        <div><strong>Shooting With:</strong> {session.foot} foot</div>
+                        <div><strong>Comments:</strong> {session.comments}</div>
                          <button
                             type="button"
                             className="btn btn-success"
