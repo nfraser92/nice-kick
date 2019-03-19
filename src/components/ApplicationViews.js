@@ -14,6 +14,7 @@ import LocationList from "./locations/LocationList";
 import AddLocationForm from "./locations/AddLocationForm";
 import LocationEditForm from "./locations/LocationEditForm";
 import Home from "./home/home";
+import SessionDetail from "./sessions/SessionDetail";
 
 
 class ApplicationViews extends Component {
@@ -121,6 +122,14 @@ class ApplicationViews extends Component {
                               activeUser={this.state.activeUser}
                               sessions={this.state.sessions} />
         }} />
+
+        <Route exact path="/sessions/:sessionId(\d+)" render={(props) => {
+                  return <SessionDetail {...props}
+                    sessions={this.state.sessions}
+                    locations={this.state.locations}
+                    editSession={this.editSession}
+                    deleteSession={this.deleteSession} />
+                }} />
 
       <Route exact path="/sessions/:sessionId(\d+)/edit" render={props => {
             return <SessionEditForm {...props}

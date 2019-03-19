@@ -20,6 +20,7 @@ export default class UserList extends Component {
                             <div><strong>Age: {user.age}</strong></div>
                             <div><strong>Email: {user.email}</strong></div>
                             <div><strong>Username: {user.username}</strong></div>
+                            <div className="btn buttons">
                             <button
                             type="button"
                             className="btn btn-success"
@@ -28,13 +29,13 @@ export default class UserList extends Component {
                                     `/users/${user.id}/edit`
                                     );
                                 }}
-                                >Edit</button>      <div className="btn add-session-button">
+                                >Edit Profile</button>
                                 <button type="button"
                                 onClick={() => {
                                   this.props.history.push("/sessions/new")
                                 }}
                                 className="btn btn-success">
-                                 Add New Session
+                                 New Session
                                 </button>
                               </div>
                         </div>

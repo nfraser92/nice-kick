@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Sessions.css"
+import { Link } from "react-router-dom"
 
 export default class SessionCard extends Component {
     render () {
@@ -11,12 +12,7 @@ export default class SessionCard extends Component {
                 <div className="card-body">
                 <div><strong>Date:</strong>  {session.date}</div>
                 <div><strong>Location:</strong>  {session.location}</div>
-                        <div><strong>Attempted:</strong> {session.shotsTaken} Shots</div>
-                        <div><strong>Area of Field:</strong>  {session.areaOfField}</div>
-                        <div><strong>Distance:</strong> {session.distance} yards</div>
-                        <div><strong>Scored:</strong> {session.scored} goals</div>
-                        <div><strong>Shooting With:</strong> {session.foot} foot</div>
-                        <div><strong>Comments:</strong> {session.comments}</div>
+                <Link className="nav-link" to={`/sessions/${this.props.session.id}`}>Details</Link>
                          <button
                             type="button"
                             className="btn btn-success"
