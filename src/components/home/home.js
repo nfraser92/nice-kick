@@ -5,6 +5,7 @@ export default class Home extends Component {
     render () {
         return (
             <React.Fragment>
+                <div className="wrapper">
            <div className="title"><h1 className="title">Welcome to NiceKick!</h1></div>
                   <div className="btn buttons">
           <button type="button"
@@ -20,6 +21,7 @@ export default class Home extends Component {
                             this.props.history.push("/locations/new")
                         }}> Add New Field
                 </button>
+        </div>
         </div>
         </React.Fragment>
         )
