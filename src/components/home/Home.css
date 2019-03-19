@@ -1,4 +1,18 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.title {
+    display: flex;
+
+}
+
+.buttons {
+    display: flex
+}
 
 
 

@@ -12,8 +12,10 @@ export default class SessionDetail extends Component {
             s => s.id === parseInt(this.props.match.params.sessionId)) || {}
 
 return (
-    <section className="location">
-    <div key={session.id}>
+    <section className="sessions">
+    <div key={session.id} className="card-body">
+    <div><strong>Date:</strong>  {session.date}</div>
+    <div><strong>Location:</strong>  {session.location}</div>
     <div><strong>Attempted:</strong> {session.shotsTaken} Shots</div>
     <div><strong>Area of Field:</strong>  {session.areaOfField}</div>
     <div><strong>Distance:</strong> {session.distance} Yards</div>
