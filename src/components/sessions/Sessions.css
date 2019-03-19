@@ -10,7 +10,6 @@
     border: 1.5px solid black;
     border-radius: 10px;
     box-shadow: 2px 2px;
-    height: 20rem
 }
 
 .sessions {
@@ -18,11 +17,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap
-}
-
-.newsCard {
-    width: 250px;
-    margin: 20px;
 }
 
 .form-group {
@@ -37,5 +31,10 @@
 .btn.add-session-button {
     display: flex;
     justify-content: center;
+    text-align: center
+}
+
+.nav-link {
+    font-weight: bold;
     text-align: center
 }

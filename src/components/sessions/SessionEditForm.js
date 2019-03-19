@@ -166,14 +166,14 @@ export default class SessionEditForm extends Component {
                               placeholder="comments"
                               value={this.state.comments}
                           />
-                      </div>
                       <button
             type="submit"
             onClick={this.updateExistingSession}
             className="btn btn-primary"
-          >
+            >
             Submit
           </button>
+            </div>
                         </form>
             </React.Fragment>
         )
