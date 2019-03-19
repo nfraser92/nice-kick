@@ -139,7 +139,7 @@ export default class extends Component {
                             className="form-control"
                             onChange={this.handleFieldChange}
                             id="comments"
-                            placeholder="comments"
+                            placeholder="Comments"
                         />
                     <button
           type="submit"

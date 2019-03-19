@@ -5,10 +5,9 @@
 }
 
 .card-body {
-    background: lightgoldenrodyellow;
     margin: 15px;
     padding: 10px;
-    border: 1.5px solid grey;
+    border: 1.5px solid black;
     border-radius: 10px;
     box-shadow: 2px 2px;
     height: 20rem
@@ -33,4 +32,10 @@
 
 .btn-primary {
     margin: 15px;
+}
+
+.btn.add-session-button {
+    display: flex;
+    justify-content: center;
+    text-align: center
 }
