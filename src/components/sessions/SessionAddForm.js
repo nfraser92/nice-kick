@@ -148,6 +148,13 @@ export default class extends Component {
           >
           Submit
         </button>
+        <button
+            type="submit"
+            onClick={() => this.props.history.push("/sessions")}
+            className="btn btn-primary"
+            >
+            Cancel
+          </button>
           </div>
                     </form>
             </React.Fragment>

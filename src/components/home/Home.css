@@ -21,6 +21,11 @@
     align-items: center;
 }
 
+.btn.btn-user {
+    background: white;
+    color: green;
+}
+
 
 
 
