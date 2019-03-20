@@ -39,3 +39,9 @@
     font-weight: bold;
     text-align: center
 }
+
+a:hover {
+    background:dodgerblue;
+    color: white
+  }
+
