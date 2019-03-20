@@ -14,12 +14,8 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    border: 1px solid black;
     width: 50%;
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: 2px 2px;
-    background: whitesmoke
 }
 
 .location {
@@ -31,4 +27,8 @@
 
 .locationButton {
     text-align: center
+}
+
+h3 {
+    font-weight: bold
 }

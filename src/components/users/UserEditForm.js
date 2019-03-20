@@ -118,14 +118,14 @@ export default class UserEditForm extends Component {
               placeholder="Are you sure you want to change your password?"
               value={this.state.password}
             />
-          </div>
           <button
             type="submit"
             onClick={this.updateExistingUser}
             className="btn btn-primary"
-          >
+            >
             Submit
           </button>
+            </div>
         </form>
       </React.Fragment>
     );
