@@ -66,7 +66,7 @@ export default class Login extends Component {
           onChange={this.handleFieldChange}
           type="username"
           id="username"
-          placeholder={` Something Cool`}
+          placeholder={` Enter Username`}
           required=""
           autoFocus=""
         />
@@ -75,7 +75,7 @@ export default class Login extends Component {
           onChange={this.handleFieldChange}
           type="password"
           id="password"
-          placeholder={` Don't tell!`}
+          placeholder={` Password`}
           required=""
         />
         <button type="submit" className="btn btn-login" onClick={this.handleLogin}>
