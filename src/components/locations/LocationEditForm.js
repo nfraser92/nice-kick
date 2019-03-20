@@ -79,14 +79,14 @@ export default class LocationEditForm extends Component {
                               placeholder="Comments"
                               value={this.state.comments}
                           />
-                      </div>
                       <button
             type="submit"
             onClick={this.updateExistingLocation}
             className="btn btn-primary"
-          >
+            >
             Submit
           </button>
+            </div>
                         </form>
             </React.Fragment>
         )

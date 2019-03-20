@@ -77,14 +77,14 @@ export default class AddLocationForm extends Component {
               placeholder="Comments"
               value={this.state.comments}
               />
-          </div>
           <button
             type="submit"
             onClick={this.constructNewLocation}
             className="btn btn-primary"
-          >
+            >
             Submit
           </button>
+            </div>
           </form>
               </React.Fragment>
     );

@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import SessionCard from "./SessionCard";
-import SearchSession from "../search/SearchSession";
 
 export default class SessionList extends Component {
   render() {
 
     return (
       <React.Fragment>
-        <SearchSession {...this.props}/>
       <div className="btn add-session-button">
           <button type="button"
           onClick={() => {
