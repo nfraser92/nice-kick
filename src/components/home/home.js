@@ -8,6 +8,16 @@ export default class Home extends Component {
                 <div className="wrapper">
            <div className="title"><h1 className="title">Welcome to NiceKick!</h1></div>
                   <div className="btn buttons">
+                  <button
+                            type="button"
+                            className="btn btn-success"
+                            onClick={() => {
+                                this.props.history.push(
+                                    `/users/${this.props.user.id}/edit`
+                                    );
+                                }}
+                                >Edit Profile
+                                </button>
           <button type="button"
           onClick={() => {
               this.props.history.push("/sessions/new")

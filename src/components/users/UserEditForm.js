@@ -125,6 +125,13 @@ export default class UserEditForm extends Component {
             >
             Submit
           </button>
+          <button
+            type="submit"
+            onClick={() => this.props.history.push("/users")}
+            className="btn btn-primary"
+            >
+            Cancel
+          </button>
             </div>
         </form>
       </React.Fragment>

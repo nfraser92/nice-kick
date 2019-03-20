@@ -85,6 +85,8 @@ class ApplicationViews extends Component {
           return <Home activeUser={this.state.activeUser}
                        {...props}
                        addSession={this.addSession}
+                       editUser={this.editUser}
+                       users={this.state.users}
                        locations={this.state.locations}
                        addLocation={this.addLocation}
                        sessions={this.state.sessions}/>

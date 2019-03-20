@@ -84,6 +84,13 @@ export default class AddLocationForm extends Component {
             >
             Submit
           </button>
+          <button
+            type="submit"
+            onClick={() => this.props.history.push("/locations")}
+            className="btn btn-primary"
+            >
+            Cancel
+          </button>
             </div>
           </form>
               </React.Fragment>

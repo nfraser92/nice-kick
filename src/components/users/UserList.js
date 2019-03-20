@@ -29,13 +29,21 @@ export default class UserList extends Component {
                                     `/users/${user.id}/edit`
                                     );
                                 }}
-                                >Edit Profile</button>
+                                >Edit Profile
+                                </button>
                                 <button type="button"
                                 onClick={() => {
                                   this.props.history.push("/sessions/new")
                                 }}
                                 className="btn btn-success">
                                  New Session
+                                </button>
+                                <button type="button"
+                                onClick={() => {
+                                  this.props.history.push("/locations/new")
+                                }}
+                                className="btn btn-success">
+                                 New Field
                                 </button>
                               </div>
                         </div>
