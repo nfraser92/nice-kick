@@ -11,12 +11,8 @@ export default class Home extends Component {
                   <button
                             type="button"
                             className="btn btn-success"
-                            onClick={() => {
-                                this.props.history.push(
-                                    `/users/${this.props.user.id}/edit`
-                                    );
-                                }}
-                                >Edit Profile
+                            onClick={() => this.props.history.push("/users")}
+                                >Profile
                                 </button>
           <button type="button"
           onClick={() => {
