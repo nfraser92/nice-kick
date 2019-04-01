@@ -9,7 +9,7 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav style={{backgroundColor:"white"}}className= "navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
+      <nav style={{backgroundColor:"white"}}className= "navbar navbar-light fixed-top light-green flex-md-nowrap p-0 shadow">
         <ul className="nav nav-pills">
           <li className="nav-item">
             <Link className="nav-link" to="/">
