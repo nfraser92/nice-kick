@@ -6,6 +6,10 @@ export default class SessionList extends Component {
 
     return (
       <React.Fragment>
+        <div id="wrapper">
+        <div className="headerholder">
+                <h1>Sessions</h1>
+                </div>
       <div className="btn add-session-button">
           <button type="button"
           onClick={() => {
@@ -25,6 +29,7 @@ export default class SessionList extends Component {
               )
             }
       </section>
+            </div>
             </React.Fragment>
     );
   }

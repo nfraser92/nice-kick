@@ -6,10 +6,9 @@ export default class UserList extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className="container">
             <section className="user">
-
                 {
-
                     this.props.users.filter(user => user.userId === Number(sessionStorage.getItem("credentials")))
                     .map(user =>
                         <div className="userCard" key={user.id}>
@@ -40,7 +39,7 @@ export default class UserList extends Component {
                                 </button>
                                 <button type="button"
                                 onClick={() => {
-                                  this.props.history.push("/locations/new")
+                                    this.props.history.push("/locations/new")
                                 }}
                                 className="btn btn-success">
                                  New Field
@@ -50,6 +49,7 @@ export default class UserList extends Component {
                     )
                 }
             </section>
+                </div>
                 </React.Fragment>
         );
     }
