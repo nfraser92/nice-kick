@@ -12,6 +12,7 @@ export default class SessionDetail extends Component {
             s => s.id === parseInt(this.props.match.params.sessionId)) || {}
 
 return (
+    <div className="sessionWrapper">
     <section className="sessions">
     <div key={session.id} className="card-body">
     <div><strong>Date:</strong>  {session.date}</div>
@@ -28,15 +29,16 @@ return (
                             onClick={() => {
                                 this.props.history.push(
                                     `/sessions/${session.id}/edit`
-                                );
-                            }}
-                        >Edit</button>
+                                    );
+                                }}
+                                >Edit</button>
                         <button
                             onClick={() => this.props.deleteSession(session.id)
                                 .then(() => this.props.history.push("/sessions"))}
-                            className="btn red-btn-success">Delete</button>
+                                className="btn red-btn-success">Delete</button>
     </div>
     </section>
+                                </div>
 )
     }
 }
