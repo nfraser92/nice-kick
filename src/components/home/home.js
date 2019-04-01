@@ -4,7 +4,7 @@ import  "./Home.css"
 export default class Home extends Component {
     render () {
         return (
-            <React.Fragment>
+                <div className="outerwrapper">
                 <div className="wrapper">
            <div className="title"><h1 className="title">Welcome to NiceKick!</h1></div>
                   <div className="btn buttons">
@@ -29,7 +29,7 @@ export default class Home extends Component {
                 </button>
         </div>
         </div>
-        </React.Fragment>
+        </div>
         )
     }
 }
