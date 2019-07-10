@@ -76,5 +76,26 @@ export default Object.create(null, {
         body: JSON.stringify(newObject)
       })
     }
+  },
+
+  getAllUserFriends: {
+    value: function () {
+      return fetch(`${Settings.remoteURL}/${this.desiredDatabase}`)
+        .then(r => r.json())
+    }
+  },
+
+  addFriend: {
+    value: function (obj) {
+      return fetch(`${Settings.remoteURL}/${this.desiredDatabase}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj)
+      })
+        .then(r => r.json())
+    }
   }
+
 })

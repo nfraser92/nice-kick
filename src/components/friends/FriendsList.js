@@ -1,32 +1,34 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
 export default class FriendsList extends Component {
-    render () {
+
+    state = {
+        friends: []
+    }
+    render() {
         return (
-            <React.Fragment>
-                <section className="friendsList">
-                <button
-                type="button"
-                className="addFriendButton btn-primary"
-                onClick={() => {
-                    this.props.history.push("/friends/new")
-                }}>Add New Friend</button>
-                {
-                    this.props.friends.filter(friend => friend.user.id === parseInt(sessionStorage.getItem("credentials")))
-                    .map(friend => {
-                        return <div className="card" key={friend.id}>
-                        {
-                            this.props.users.find(user => user.id === friend.friendId).username
-                        }
-                         <button
-                         onClick={() => this.props.deletefriendship(friend.id)
-                            .then(() => this.props.history.push("/friends"))}
-                            className="btn red-btn-success">Delete</button>
+            <div className="friendsList">
+                <h3>Friends List</h3>
+                <div className="friendButton text-center">
+                    <button type="button" className="btn btn-success" onClick={() => {this.props.history.push("/friends/new")}}>Add New Friend</button>
+                    {
+                        this.props.friends.map(friend => 
+                            <div>
+                                {
+                                    this.props.users
+                                        .filter(user => user.id === friend.otherPersonId)
+                                        .map(u => 
+                                            <div key={friend.id}>
+                                                {u.username}
+                                                <button type="button" className="btn btn-danger" onClick={() => this.props.deleteFriend(friend.id)}>Delete</button>
+                                            </div>
+                                            )
+                                }
                             </div>
-                    })
-                }
-                </section>
-            </React.Fragment>
-        )
+                        )
+                    }
+                </div>
+            </div>
+        );
     }
 }
