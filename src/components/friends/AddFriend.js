@@ -17,7 +17,7 @@ export default class AddFriend extends Component {
 
         const friendArray = this.props.users.filter(user => user.username === this.state.friendName)
         if (friendArray.length === 0) {
-            window.alert("No such user found!")
+            window.alert("No users match your search!")
         } else {
             const friendId = friendArray[0].id
 
