@@ -13,15 +13,15 @@ export default class FriendsList extends Component {
                     <button type="button" className="btn btn-success" onClick={() => {this.props.history.push("/friends/new")}}>Add New Friend</button>
                     {
                         this.props.friends.map(friend => 
-                            <div>
+                            <div key={friend.id}>
                                 {
                                     this.props.users
                                         .filter(user => user.id === friend.otherPersonId)
                                         .map(u => 
-                                            <div key={friend.id}>
+                                                <React.Fragment>
                                                 {u.username}
                                                 <button type="button" className="btn btn-danger" onClick={() => this.props.deleteFriend(friend.id)}>Delete</button>
-                                            </div>
+                                                </React.Fragment>
                                             )
                                 }
                             </div>
