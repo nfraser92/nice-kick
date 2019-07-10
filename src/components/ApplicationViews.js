@@ -13,14 +13,17 @@ import LocationManager from "../modules/LocationManager";
 import LocationList from "./locations/LocationList";
 import AddLocationForm from "./locations/AddLocationForm";
 import LocationEditForm from "./locations/LocationEditForm";
+import FriendsList from "./friends/FriendsList"
 import Home from "./home/home";
 import SessionDetail from "./sessions/SessionDetail";
+import FriendsManager from "../modules/FriendsManager";
 
 
 class ApplicationViews extends Component {
   state = {
     users: [],
     sessions: [],
+    friends: [],
     locations: []
   }
 
@@ -66,6 +69,17 @@ class ApplicationViews extends Component {
     .then(locations => this.setState({ locations: locations}))
   }
 
+  addFriend = newFriend => {
+    return FriendsManager.post(newFriend)
+    .then(() => FriendsManager.getAll())
+    .then(friends => this.setState({friends: friends}))
+  }
+
+  deleteFriend = (id) => {
+    return FriendsManager.deleteAndList(id)
+    .then(friends => this.setState({friends: friends}))
+  }
+
   componentDidMount() {
     SessionManager.sortSessions().then(sessions => this.setState({sessions: sessions}))
 
@@ -73,6 +87,7 @@ class ApplicationViews extends Component {
 
     LocationManager.getAll().then(locations => this.setState({locations: locations}))
 
+    FriendsManager.getAll().then(friends => this.setState({friends: friends}))
   }
   render() {
     return (
@@ -118,12 +133,12 @@ class ApplicationViews extends Component {
       } />
 
       <Route exact path="/sessions/new" render={props => {
-          return <AddSessionForm {...props}
-                              addSession={this.addSession}
+        return <AddSessionForm {...props}
+        addSession={this.addSession}
                               locations={this.state.locations}
                               activeUser={this.state.activeUser}
                               sessions={this.state.sessions} />
-        }} />
+                            }} />
 
         <Route exact path="/sessions/:sessionId(\d+)" render={(props) => {
                   return <SessionDetail {...props}
@@ -131,39 +146,51 @@ class ApplicationViews extends Component {
                     locations={this.state.locations}
                     editSession={this.editSession}
                     deleteSession={this.deleteSession} />
-                }} />
+                  }} />
 
       <Route exact path="/sessions/:sessionId(\d+)/edit" render={props => {
             return <SessionEditForm {...props}
                         sessions={this.state.sessions}
                         locations={this.state.locations}
                         editSession={this.editSession} />
-        }} />
+                      }} />
 
     <Route exact path="/locations" render={props => {
-        if (this.isAuthenticated()) {
+      if (this.isAuthenticated()) {
           return <LocationList {...props}
-                              locations={this.state.locations}
-                              deleteLocation={this.deleteLocation} />
+          locations={this.state.locations}
+          deleteLocation={this.deleteLocation} />
         }}
       } />
 
     <Route exact path="/locations/new" render={props => {
           return <AddLocationForm {...props}
-                              addLocation={this.addLocation}
-                              activeUser={this.state.activeUser}
+          addLocation={this.addLocation}
+          activeUser={this.state.activeUser}
                               locations={this.state.locations} />
-        }} />
+                            }} />
 
     <Route exact path="/locations/:locationId(\d+)/edit" render={props => {
-            return <LocationEditForm {...props}
-                        locations={this.state.locations}
-                        editLocation={this.editLocation} />
-        }} />
+      return <LocationEditForm {...props}
+      locations={this.state.locations}
+      editLocation={this.editLocation} />
+    }} />
+
+    <Route exact path="/friends" render={props => {
+      if (this.isAuthenticated()) {
+        return <FriendsList {...props}
+                            activeUser={this.state.activeUser}
+                            users ={this.state.users}
+                            friends={this.state.friends}
+                            deleteFriend={this.deleteFriend}
+                            addFriend={this.addFriend} />      }}
+    } />
+
+
 
     </React.Fragment>
   )
-  }
+}
 }
 
 export default ApplicationViews

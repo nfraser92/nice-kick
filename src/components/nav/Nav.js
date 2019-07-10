@@ -31,6 +31,11 @@ class Nav extends Component {
               Fields
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/friends">
+              Friends
+            </Link>
+          </li>
         </ul>
         <button
           type="button"
