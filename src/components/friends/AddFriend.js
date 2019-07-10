@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class NewFriend extends Component {
+export default class AddFriend extends Component {
     state = {
         friendName: ""
     }
@@ -12,7 +12,7 @@ export default class NewFriend extends Component {
         this.setState(stateToChange);
     };
 
-    createNewFriend = event => {
+    addFriendship = event => {
         event.preventDefault();
 
         const friendArray = this.props.users.filter(user => user.username === this.state.friendName)
@@ -39,7 +39,7 @@ export default class NewFriend extends Component {
                         <label htmlFor="friendName">Friend username</label>
                             <input type="text" className="form-control" onChange={this.handleFieldChange} id="friendName" placeholder="type a username" />
                     </div>
-                    <button type="submit" onClick={this.createNewFriend} className="btn btn-primary">Submit</button>
+                    <button type="submit" onClick={this.addFriendship} className="btn btn-primary">Submit</button>
                 </form>
             </React.Fragment>
         );

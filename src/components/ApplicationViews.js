@@ -17,6 +17,7 @@ import FriendsList from "./friends/FriendsList"
 import Home from "./home/home";
 import SessionDetail from "./sessions/SessionDetail";
 import FriendsManager from "../modules/FriendsManager";
+import AddFriend from "./friends/AddFriend";
 
 
 class ApplicationViews extends Component {
@@ -70,8 +71,8 @@ class ApplicationViews extends Component {
   }
 
   addFriend = newFriend => {
-    return FriendsManager.post(newFriend)
-    .then(() => FriendsManager.getAll())
+    return FriendsManager.addFriend(newFriend)
+    .then(() => FriendsManager.getAllUserFriends())
     .then(friends => this.setState({friends: friends}))
   }
 
@@ -87,7 +88,7 @@ class ApplicationViews extends Component {
 
     LocationManager.getAll().then(locations => this.setState({locations: locations}))
 
-    FriendsManager.getAll().then(friends => this.setState({friends: friends}))
+    FriendsManager.getAllUserFriends().then(friends => this.setState({friends: friends}))
   }
   render() {
     return (
@@ -165,15 +166,15 @@ class ApplicationViews extends Component {
 
     <Route exact path="/locations/new" render={props => {
           return <AddLocationForm {...props}
-          addLocation={this.addLocation}
-          activeUser={this.state.activeUser}
+                              addLocation={this.addLocation}
+                              activeUser={this.state.activeUser}
                               locations={this.state.locations} />
                             }} />
 
     <Route exact path="/locations/:locationId(\d+)/edit" render={props => {
       return <LocationEditForm {...props}
-      locations={this.state.locations}
-      editLocation={this.editLocation} />
+                              locations={this.state.locations}
+                              editLocation={this.editLocation} />
     }} />
 
     <Route exact path="/friends" render={props => {
@@ -185,6 +186,13 @@ class ApplicationViews extends Component {
                             deleteFriend={this.deleteFriend}
                             addFriend={this.addFriend} />      }}
     } />
+
+<Route exact path="/friends/new" render={(props) => {
+        return <AddFriend {...props}
+        activeUser={this.state.activeUser}
+        addFriend={this.addFriend}
+        users={this.state.users} />
+			}} />
 
 
 

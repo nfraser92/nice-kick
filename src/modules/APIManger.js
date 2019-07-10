@@ -85,4 +85,17 @@ export default Object.create(null, {
     }
   },
 
+  addFriend: {
+    value: function (obj) {
+      return fetch(`${Settings.remoteURL}/${this.desiredDatabase}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj)
+      })
+        .then(r => r.json())
+    }
+  }
+
 })
