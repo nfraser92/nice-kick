@@ -12,7 +12,7 @@ export default class AddFriend extends Component {
         this.setState(stateToChange);
     };
 
-    addFriendship = event => {
+    createNewFriend = event => {
         event.preventDefault();
 
         const friendArray = this.props.users.filter(user => user.username === this.state.friendName)
@@ -27,7 +27,7 @@ export default class AddFriend extends Component {
             };
     
         this.props.addFriend(friend)
-            .then(() => this.props.history.push("/"));
+            .then(() => this.props.history.push("/friends"));
         }
     };
 
@@ -39,7 +39,7 @@ export default class AddFriend extends Component {
                         <label htmlFor="friendName">Friend username</label>
                             <input type="text" className="form-control" onChange={this.handleFieldChange} id="friendName" placeholder="type a username" />
                     </div>
-                    <button type="submit" onClick={this.addFriendship} className="btn btn-primary">Submit</button>
+                    <button type="submit" onClick={this.createNewFriend} className="btn btn-primary">Submit</button>
                 </form>
             </React.Fragment>
         );
