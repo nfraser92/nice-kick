@@ -8,8 +8,8 @@ export default class FriendsList extends Component {
     render() {
         return (
             <div id="wrapper">
-            <div className="friendsList">
-                <h3>Friends List</h3>
+            <div className="friendsList " >
+                <h3 className="text-center">Friends List</h3>
                 <div className="friendButton text-center">
                     <button type="button" className="btn btn-success" onClick={() => {this.props.history.push("/friends/new")}}>Add New Friend</button>
                     {
