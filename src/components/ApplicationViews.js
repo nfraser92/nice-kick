@@ -18,6 +18,10 @@ import Home from "./home/home";
 import SessionDetail from "./sessions/SessionDetail";
 import FriendsManager from "../modules/FriendsManager";
 import AddFriend from "./friends/AddFriend";
+import ChatManager from "../modules/ChatManager";
+import ChatList from "./chat/ChatList";
+import ChatForm from "./chat/ChatForm";
+import ChatEdit from "./chat/ChatEditForm";
 
 
 class ApplicationViews extends Component {
@@ -25,7 +29,8 @@ class ApplicationViews extends Component {
     users: [],
     sessions: [],
     friends: [],
-    locations: []
+    locations: [],
+    chats: []
   }
 
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
@@ -81,6 +86,23 @@ class ApplicationViews extends Component {
     .then(friends => this.setState({friends: friends}))
   }
 
+  addChat = newChat => {
+    return ChatManager.post(newChat)
+    .then(() => ChatManager.getAll())
+    .then(chats => this.setState({chats: chats}))
+  }
+
+  deleteChat = deletedChat => {
+    return ChatManager.deleteAndList(deletedChat)
+    .then(chats => this.setState({chats: chats}))
+  }
+
+  editChat = editedChat => {
+    return ChatManager.put(editedChat)
+    .then(() => ChatManager.getAll())
+    .then(chats => this.setState({chats: chats}))
+  }
+
   componentDidMount() {
     SessionManager.sortSessions().then(sessions => this.setState({sessions: sessions}))
 
@@ -89,6 +111,9 @@ class ApplicationViews extends Component {
     LocationManager.getAll().then(locations => this.setState({locations: locations}))
 
     FriendsManager.getAllUserFriends().then(friends => this.setState({friends: friends}))
+
+    ChatManager.getAll().then(chats => this.setState({chats: chats}))
+
   }
   render() {
     return (
@@ -194,8 +219,37 @@ class ApplicationViews extends Component {
         users={this.state.users} />
 			}} />
 
+<Route exact path="/chats" render={props => {
+            return (<ChatList
+              chats={this.state.chats}
+              addChat={this.addChat}
+              deleteChat={this.deleteChat}
+              updateChat={this.updateChat}
+              {...props}
+              users={this.state.users} />
+          );
+        }} />
 
+        <Route
+          exact
+          path="/chats/new"
+          render={props => {
+            return (
+              <ChatForm
+                chats={this.state.chats}
+                addChat={this.addChat}
+                {...props}
+              />
+            );
+          }}
+        />
 
+<Route exact path="/chats/:chatId(\d+)/edit" render={props => {
+            return <ChatEdit {...props}
+                        chats={this.state.chats}
+                        users={this.state.users}
+                        editChat={this.editChat} />
+                      }} />
     </React.Fragment>
   )
 }
